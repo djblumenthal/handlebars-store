@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div id="product-container"></div>
+	<ul id="wishlist"></ul>
+
+<!-- templates -->
+	<script id='store-template', type="text/x-handlebars-template">
+		<div class='product' id='{{title}}'>
+			<h1>{{title}}</h1>
+			<img src='{{image}}'>
+			<div class='cost-container'>
+				{{#if sale}}
+					<h4>cost: <span class='old-price'>{{cost}}</span>{{sale}}</h4>
+				{{else}}
+					<h4>{{cost}}</h4>
+				{{/if}}
+			</div>
+			<button class='add-wishlist'>Add item to Wishlist</button>
+			<ul class='product-details'>
+				{{#each details}}
+					<li>{{@key}}: {{this}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</script>
+
+	<script id='wishlist-item-template', type="text/x-handlebars-template">
+		<li class='wishlist-item'>{{title}} <button class='remove-button'>Remove</button></li>
+	</script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
